@@ -40,9 +40,10 @@ const promptUser = ()=> {
         },
 
         {
-            type: 'input',
-            name: 'about',
-            message: 'Provide some information about yourself'
+            type: 'confirm',
+            name: 'confirmAbout',
+            message: 'Would you liek to enter some information about youreself for an "About" Section?',
+            default: true
         }
     ]);
 };
@@ -88,22 +89,22 @@ const promptProject = portfolioData => {
         }
         },
         {
-            type: 'checkbox', 
-            name: 'languages',
-            message: "What did you build this project with? (Check all that apply)",
-            choices: ['Javascript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node']
+        type: 'checkbox', 
+        name: 'languages',
+        message: "What did you build this project with? (Check all that apply)",
+        choices: ['Javascript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node']
         },
         {
-            type:'input',
-            name: 'link',
-            message: 'Enter the GitHub link to your project. (Required)',
-            validate:linkInput=> {
-                if (linkInput) {
-                    return true;
-                } else {
-                    console.log('Please enter your link!');
-                    return false;
-                }
+        type:'input',
+        name: 'link',
+        message: 'Enter the GitHub link to your project. (Required)',
+        validate:linkInput=> {
+            if (linkInput) {
+                return true;
+                }else {
+                console.log('Please enter your link!');
+                return false;
+            }
             }
         },
         {
